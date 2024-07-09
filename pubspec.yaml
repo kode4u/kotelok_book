@@ -50,8 +50,10 @@ dependencies:
   sqflite: ^2.3.3+1
 
 # RENAME PACKAGE
-# dart pub global run rename setAppName --targets ios,android --value "Khmer Kotelok Book"
+# dart pub global run rename setAppName --targets ios,android --value "Kotelok Khmer"
+# dart pub global run rename setAppName --targets ios,android --value "Kotelok Khmer"
 # dart pub global run rename setBundleId --targets android --value "com.kode4u.kotelokbookkhmer"
+# dart pub global run rename setBundleId --targets ios --value "com.kode4u.kotelok"
 # COMMAND GENERATE ICON
 # dart run flutter_launcher_icons
 flutter_icons:

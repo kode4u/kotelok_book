@@ -38,16 +38,16 @@ class DBProvider {
     );
   }
 
-  Future<void> encryptStory() async {
-    final maps = await (await database)!.rawQuery("SELECT * FROM kotelokbook");
-    int count = 0;
-    for (var item in maps) {
-      StoryItem storyItem = StoryItem.fromJson(item);
-      count = count + 1;
-      storyItem.story = await KSecurity.encrypt(storyItem.story);
-      addItem(storyItem);
-    }
-  }
+  // Future<void> encryptStory() async {
+  //   final maps = await (await database)!.rawQuery("SELECT * FROM kotelokbook");
+  //   int count = 0;
+  //   for (var item in maps) {
+  //     StoryItem storyItem = StoryItem.fromJson(item);
+  //     count = count + 1;
+  //     storyItem.story = await KSecurity.encrypt(storyItem.story);
+  //     addItem(storyItem);
+  //   }
+  // }
 
   Future<List<PeakItem>> fetchMainItem({String lang = ''}) async {
     if (lang == 'en') {
@@ -88,13 +88,16 @@ class DBProvider {
   }
 
   Future<StoryItem> fetchItem({String? title}) async {
+    KSecurity k = KSecurity();
+    await k.initSodium();
+
     List<StoryItem> list = [];
     final maps = await (await database)!
         .rawQuery("SELECT * FROM kotelokbook WHERE title='$title' LIMIT 1");
     for (var item in maps) {
       StoryItem story = StoryItem.fromJson(item);
       story.story = isHexadecimal(story.story)
-          ? (await KSecurity.decrypt(story.story))
+          ? (await k.decrypt(story.story))
           : story.story;
       list.add(story);
     }

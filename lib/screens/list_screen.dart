@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kode4u/utils/k_utils.dart';
 import '../states/app_state.dart';
 import '../widgets/list_card.dart';
 
@@ -24,6 +25,7 @@ class ListScreen extends StatelessWidget {
               itemIndex: index,
               storyItem: Get.find<AppState>().listStory[index],
               press: () {
+                KUtil.showMoreAppIOS();
                 Get.find<AppState>().currentStory =
                     Get.find<AppState>().listStory[index];
                 Get.toNamed('/detail-screen');

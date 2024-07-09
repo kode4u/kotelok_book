@@ -8,13 +8,18 @@ setTheme() {
   KConfig.margin = 8.0;
   KConfig.radius = 8.0;
   KConfig.ads = {
-    'app': Platform.isAndroid ? 'ca-app-pub-6380644639947620~8474497191' : '',
-    'banner':
-        Platform.isAndroid ? 'ca-app-pub-6380644639947620/9951230390' : '',
-    'inter': Platform.isAndroid ? 'ca-app-pub-6380644639947620/2427963598' : '',
+    'app': Platform.isAndroid
+        ? 'ca-app-pub-6380644639947620~8474497191'
+        : 'ca-app-pub-6380644639947620~9555651594',
+    'banner': Platform.isAndroid
+        ? 'ca-app-pub-6380644639947620/9951230390'
+        : 'ca-app-pub-6380644639947620/2032384798',
+    'inter': Platform.isAndroid
+        ? 'ca-app-pub-6380644639947620/2427963598'
+        : 'ca-app-pub-6380644639947620/3509117995',
   };
   KConfig.android_package = 'com.kode4u.kotelokbookkhmer';
-  KConfig.ios_package = '';
+  KConfig.ios_package = 'khmer-kotelok-book/id1194021445';
 
 //config theme data
   KColor.l_primary_l_color = const Color(0xFF64B5F6);

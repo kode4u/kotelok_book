@@ -34,6 +34,7 @@ class _GridScreenState extends State<MainScreen> {
               child: Material(
                 child: InkWell(
                   onTap: () async {
+                    KUtil.showMoreAppIOS();
                     AppState app = Get.find<AppState>();
                     app.currentPeak = app.listPeak[index];
                     await app.fetchTitles(bookno: app.currentPeak!.peak);
